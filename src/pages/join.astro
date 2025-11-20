@@ -1,0 +1,204 @@
+---
+import BaseLayout from '../layouts/Layout.astro';
+import 'animate.css';
+---
+
+<BaseLayout>
+  <div class="min-h-screen flex flex-col items-center justify-center p-4">
+    <div class="w-full max-w-4xl">
+      
+      <!-- 页面标题 -->
+      <div class="text-center mb-12 animate__animated animate__fadeIn">
+        <h1 class="text-4xl font-bold text-white mb-4">进入 Chspif</h1>
+        <p class="text-xl text-white/80">在获取服务器地址之前，我们希望你能认真阅读以下玩家守则</p>
+        <p class="text-lg text-white/70">若出现违反玩家守则，可能会遭到警告或封禁</p>
+      </div>
+
+      <div class="space-y-12">
+        
+        <!-- 步骤1: 准备工作 -->
+        <section class="bg-white/20 backdrop-blur-md rounded-3xl p-8 border border-white/30 animate__animated animate__fadeInUp">
+          <div class="flex items-center mb-6">
+            <div class="w-10 h-10 rounded-full bg-blue-500/30 flex items-center justify-center mr-4">
+              <span class="text-lg font-bold text-blue-400">2</span>
+            </div>
+            <h3 class="text-2xl font-semibold text-white">准备工作</h3>
+          </div>
+          
+          <div class="space-y-4 text-white/90">
+            <p>服务器为fabric服务端，版本为1.21.10，包含正版验证和白名单，无需专有客户端进入</p>
+            <p>当然，我们也提供了推荐的mod包和增强材质包。</p>
+            
+            <div class="mt-6 space-y-2">
+              <p>点击 <a href="https://lyjdtz-1300831543.cos.ap-nanjing.myqcloud.com/chspif_mods.zip" target="_blank" class="text-green-400 hover:text-green-300 underline">这里</a> 下载辅助mod</p>
+              <p class="text-sm text-white/70 ml-4">这些mod包含了客户端性能优化、生电辅助mod等,但它并不会让你的游戏界面过于臃肿</p>
+            </div>
+            
+            <div class="mt-4 space-y-2">
+              <p>点击 <a href="https://lyjdtz-1300831543.cos.ap-nanjing.myqcloud.com/chspif_resourcepacks.zip" target="_blank" class="text-purple-400 hover:text-purple-300 underline">这里</a> 下载增强材质包</p>
+              <p class="text-sm text-white/70 ml-4">它修改了游戏内部分材质使得界面更加舒适，但该增强材质包并不包含主材质包，如需修改整体材质，你需要手动添加主材质包</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- 步骤2: 尊重理念 -->
+        <section class="bg-white/20 backdrop-blur-md rounded-3xl p-8 border border-white/30 animate__animated animate__fadeInUp">
+          <div class="flex items-center mb-6">
+            <div class="w-10 h-10 rounded-full bg-blue-500/30 flex items-center justify-center mr-4">
+              <span class="text-lg font-bold text-blue-400">3</span>
+            </div>
+            <h3 class="text-2xl font-semibold text-white">尊重理念</h3>
+          </div>
+          
+          <p class="text-lg text-white/80 mb-4">chspif是一个充满爱的家庭，在进入前，我们希望你树立起尊重理念</p>
+          
+          <ul class="space-y-3 text-white/90">
+            <li class="flex items-start">
+              <span class="text-blue-400 mr-2">•</span>
+              在方方面面尊重其他玩家和管理人员，主动构建和谐的交流氛围
+            </li>
+            <li class="flex items-start">
+              <span class="text-blue-400 mr-2">•</span>
+              游戏内尊重游戏内容和其他玩家的劳动成果，遇到问题请主动与他人交流，不要随便修改其他玩家的建筑/机器
+            </li>
+            <li class="flex items-start">
+              <span class="text-blue-400 mr-2">•</span>
+              <a href="/rules" class="text-blue-400 hover:text-blue-300 underline">详细服务器规则</a>
+            </li>
+          </ul>
+        </section>
+
+        <!-- 步骤3: 生电/建筑玩家 -->
+        <section class="bg-white/20 backdrop-blur-md rounded-3xl p-8 border border-white/30 animate__animated animate__fadeInUp">
+          <div class="flex items-center mb-6">
+            <div class="w-10 h-10 rounded-full bg-blue-500/30 flex items-center justify-center mr-4">
+              <span class="text-lg font-bold text-blue-400">1</span>
+            </div>
+            <h3 class="text-2xl font-semibold text-white">生电/建筑玩家</h3>
+          </div>
+          
+          <div class="text-white/90">
+            <p>如果你对生电/建筑有一定兴趣或是研究，欢迎联系群主加入服务器的工程群，那里负责服务器内大型项目的设计和落地</p>
+          </div>
+        </section>
+
+        <!-- 步骤4: 绑定白名单 -->
+        <section class="bg-white/20 backdrop-blur-md rounded-3xl p-8 border border-white/30 animate__animated animate__fadeInUp">
+          <div class="flex items-center mb-6">
+            <div class="w-10 h-10 rounded-full bg-blue-500/30 flex items-center justify-center mr-4">
+              <span class="text-lg font-bold text-blue-400">1</span>
+            </div>
+            <h3 class="text-2xl font-semibold text-white">绑定白名单</h3>
+          </div>
+          
+          <ul class="space-y-3 text-white/90">
+            <li class="flex items-start">
+              群内有机器人会帮助你绑定白名单
+            </li>
+            <li class="flex items-start">
+              你只需要在群内发送指令"<span class="font-mono bg-white/20 px-2 py-1 rounded">#绑定 游戏名字</span>" 即可自动绑定白名单
+            </li>
+          </ul>
+        </section>
+
+        <!-- 步骤5: 进入服务器 -->
+        <section class="bg-white/20 backdrop-blur-md rounded-3xl p-8 border border-white/30 animate__animated animate__fadeInUp">
+          <div class="flex items-center mb-6">
+            <div class="w-10 h-10 rounded-full bg-blue-500/30 flex items-center justify-center mr-4">
+              <span class="text-lg font-bold text-blue-400">6</span>
+            </div>
+            <h3 class="text-2xl font-semibold text-white">进入服务器</h3>
+          </div>
+          
+          <p class="text-lg text-white/80 mb-6">从任意启动器启动游戏，加入服务器</p>
+          
+          <!-- 密码验证部分 -->
+          <div id="password-section" class="space-y-4">
+            <div id="password-form" class="space-y-4">
+              <p class="text-yellow-400 font-medium">请输入密码以查看服务器地址</p>
+              <p class="text-sm text-white/70">提示：你有没有注意到每一条内容的标号都不太对，把他们连起来试试</p>
+              
+              <div class="flex items-center space-x-4">
+                <input 
+                  id="password-input"
+                  type="text" 
+                  placeholder="请输入密码" 
+                  class="flex-1 px-4 py-2 bg-white/20 border border-white/30 rounded-lg text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-blue-500/50"
+                />
+                <button 
+                  id="verify-btn"
+                  class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                >验证密码</button>
+              </div>
+              
+              <div id="password-error" class="text-red-400 mt-2 hidden">
+                密码错误，请重新输入！
+              </div>
+            </div>
+            
+            <div id="server-info" class="hidden mt-6 p-6 bg-green-500/20 border border-green-500/30 rounded-lg">
+              <h4 class="font-semibold text-green-400 mb-3">服务器地址已解锁</h4>
+              <p class="mb-4 text-white">服务器IP：<span class="font-mono font-bold text-green-300">mc.chspif.xyz</span></p>
+              <button 
+                id="copy-btn"
+                class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors flex items-center"
+              >
+                <span class="mr-2">复制地址</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                </svg>
+              </button>
+              <div id="copy-success" class="text-green-300 mt-2 hidden">已复制到剪贴板！</div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // 密码验证相关
+    const CORRECT_PASSWORD = '23116'; // 从规则标号中提取的关键词
+    
+    const passwordInput = document.getElementById('password-input');
+    const verifyBtn = document.getElementById('verify-btn');
+    const passwordError = document.getElementById('password-error');
+    const passwordForm = document.getElementById('password-form');
+    const serverInfo = document.getElementById('server-info');
+    
+    // 验证密码
+    verifyBtn.addEventListener('click', () => {
+      const password = passwordInput.value;
+      if (password === CORRECT_PASSWORD) {
+        passwordError.classList.add('hidden');
+        
+        // 隐藏密码表单，显示服务器信息
+        passwordForm.classList.add('hidden');
+        serverInfo.classList.remove('hidden');
+        
+        // 为复制按钮添加事件
+        const copyBtn = document.getElementById('copy-btn');
+        const copySuccess = document.getElementById('copy-success');
+        copyBtn.addEventListener('click', () => {
+          const address = "mc.chspif.xyz";
+          navigator.clipboard.writeText(address).then(() => {
+            copySuccess.classList.remove('hidden');
+            setTimeout(() => {
+              copySuccess.classList.add('hidden');
+            }, 2000);
+          });
+        });
+        
+      } else {
+        passwordError.classList.remove('hidden');
+      }
+    });
+    
+    // 支持回车键验证密码
+    passwordInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        verifyBtn.click();
+      }
+    });
+  </script>
+</BaseLayout>

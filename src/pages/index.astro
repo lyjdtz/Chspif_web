@@ -1,0 +1,72 @@
+---
+import BaseLayout from '../layouts/Layout.astro';
+import ThreeDCard from '../components/ThreeDCard.astro';
+import 'animate.css';
+---
+<BaseLayout>
+  <!-- 服务器Logo -->
+  <div class="fixed top-4 left-4 z-50">
+    <img src="https://img.cdn1.vip/i/691e9462ce3cf_1763611746.webp" alt="服务器Logo" class="w-32 h-32 lg:w-40 lg:h-40 rounded-lg shadow-lg">
+  </div>
+
+  <div class="min-h-screen flex flex-col items-center justify-center overflow-auto xl:overflow-hidden">
+    
+    <!-- 主标题 -->
+    <div class="text-center mt-7">
+      <h1 class="text-3xl md:text-4xl lg:text-5xl font-light text-white mb-4 animate__animated animate__fadeInDown tracking-wide">
+        欢迎来到
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-purple-300 to-pink-300 font-medium">
+          Chspif
+        </span>
+      </h1>
+    </div>
+
+    <div class="m-auto grid gap-2 grid-cols-2 auto-rows-[120px] sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-12 p-2 sm:p-4 pt-96 xl:pt-0 max-w-screen-xl w-full">
+      <ThreeDCard 
+        imageUrl="https://img.cdn1.vip/i/691e81bb560c3_1763606971.webp" 
+        title="网页地图"
+        colSpan="col-span-2 sm:col-span-4 md:col-span-6 lg:col-span-8" 
+        rowSpan="row-span-2" 
+        animate="animate__animated animate__fadeInDown"
+        bgColor="bg-yellow"
+        href="http://202.189.9.217:38100/"
+      />
+      <ThreeDCard
+        imageUrl="https://img.cdn1.vip/i/691e8384b3281_1763607428.webp"
+        title="进入服务器"
+        colSpan="col-span-2 sm:col-span-4 md:col-span-6 lg:col-span-4" 
+        rowSpan="row-span-1 lg:row-span-4" 
+        animate="animate__animated animate__fadeInRight"
+        bgColor="bg-green"
+        href="/join"
+      />
+      <ThreeDCard
+        imageUrl="https://img.cdn1.vip/i/691e873b0dd6e_1763608379.webp" 
+        title="服务器更新"
+        colSpan="col-span-2 sm:col-span-4 md:col-span-6 lg:col-span-4" 
+        rowSpan="row-span-2 lg:row-span-4" 
+        animate="animate__animated animate__fadeInLeft"
+        bgColor="bg-purple"
+        href="https://lyjdtz.life/chspif"
+      />
+      <ThreeDCard
+        imageUrl="https://img.cdn1.vip/i/691e8149131bd_1763606857.webp" 
+        title="服务器介绍"
+        colSpan="col-span-2 sm:col-span-4 md:col-span-6 lg:col-span-4" 
+        rowSpan="row-span-1 sm:row-span-2" 
+        animate="animate__animated animate__fadeIn"
+        bgColor="bg-black"
+        href="/server-info"
+      />
+      <ThreeDCard
+          imageUrl="https://img.cdn1.vip/i/691e852ac775a_1763607850.webp"  
+          title="赞助"
+          colSpan="col-span-2 sm:col-span-4 md:col-span-6 lg:col-span-8" 
+          rowSpan="row-span-1 sm:row-span-2" 
+          animate="animate__animated animate__fadeInUp" 
+          bgColor="bg-red"
+          href="/coming-soon"
+        />
+    </div>
+  </div>
+</BaseLayout>

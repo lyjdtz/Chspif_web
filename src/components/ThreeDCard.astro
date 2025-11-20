@@ -1,0 +1,52 @@
+---
+export interface CardProps {
+    imageUrl: string;
+    title?: string;
+    animate: string;
+    colSpan?: string; // Tamaño de columnas en el grid
+    rowSpan?: string; // Tamaño de filas en el grid
+    bgColor?:string;
+    href?: string; // URL para hacer clickeable la tarjeta
+  }
+  const { imageUrl, title, colSpan = 'col-span-6', rowSpan = 'row-span-1', animate, bgColor="white", href } = Astro.props;
+  
+  const cardClasses = `shadow-xl ${bgColor} rounded-3xl overflow-hidden ${colSpan} ${rowSpan} ${animate} cursor-pointer group relative`;
+---
+
+{(() => {
+  if (href) {
+    return (
+      <a href={href} class={cardClasses}>
+        <img 
+            src={imageUrl} 
+            alt="Card Image" 
+            class="w-full h-full object-cover transition-transform duration-300 ease-in-out group-hover:scale-110 group-active:scale-105"
+        />
+        {title && (
+            <div class="absolute inset-0 flex items-center justify-center">
+                <h3 class="text-white text-lg font-bold p-4 text-center">
+                    {title}
+                </h3>
+            </div>
+        )}
+      </a>
+    );
+  } else {
+    return (
+      <div class={cardClasses}>
+        <img 
+            src={imageUrl} 
+            alt="Card Image" 
+            class="w-full h-full object-cover transition-transform duration-300 ease-in-out group-hover:scale-110 group-active:scale-105"
+        />
+        {title && (
+            <div class="absolute inset-0 flex items-center justify-center">
+                <h3 class="text-white text-lg font-bold p-4 text-center">
+                    {title}
+                </h3>
+            </div>
+        )}
+      </div>
+    );
+  }
+})()}
