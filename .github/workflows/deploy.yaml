@@ -1,0 +1,97 @@
+name: deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Cache Primes
+        id: cache-primes
+        uses: actions/cache@v4
+        with:
+          path: cache-images
+          key: cache-images
+
+      - name: Setup Node.js v20.x
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Cache Yarn dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.yarn/berry/cache
+            node_modules
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - name: Install
+        run: yarn install
+        env:
+          YARN_IGNORE_NODE: 1
+
+      - name: Install sharp
+        run: yarn add sharp
+        env:
+          YARN_IGNORE_NODE: 1
+
+      - name: Build
+        run: yarn build
+        env:
+          BASE_URL: /
+          HOSTNAME: https://mc-ctec.org/
+
+      - name: deploy
+        run: |
+          cd dist
+          [ -f 404.html ] || ln -s index.html 404.html
+          if [ "none" !=  "$cname" ]; then echo "$cname" > CNAME; fi
+
+          dirs=(
+            "home"
+            "join"
+            "survival"
+            "survivalProgress"
+            "member"
+            "openSource"
+            "collaborative"
+            "partner"
+            "redstoneCollection"
+            "architectureCollection"
+          )
+
+          for dir in "${dirs[@]}"; do
+            mkdir -p "$dir" && cp index.html "$dir/index.html"
+          done
+      - name: Fix permissions
+        run: |
+          chmod -c -R +rX "_site/" | while read line; do
+            echo "::warning title=Invalid file permissions automatically fixed::$line"
+          done
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Upload entire repository
+          path: './dist'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
