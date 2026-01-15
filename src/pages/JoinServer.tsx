@@ -24,14 +24,6 @@ const JoinServer = () => {
         imageContent={t('join.redstone', { returnObjects: true })}
         darkMode={true}
       />
-      <ImageContentSection
-        imageContent={t('join.build', { returnObjects: true })}
-        imageOnRight={true}
-      />
-      <ImageContentSection
-        imageContent={t('join.logistics', { returnObjects: true })}
-        darkMode={true}
-      />
     </>
   );
 };

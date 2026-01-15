@@ -322,25 +322,10 @@ const NavigationBar: React.FC = () => {
     if (path === '/') return location.pathname === '/';
     return location.pathname.startsWith(path);
   };
-
-  const languageItems: MenuProps['items'] = [
-    { key: 'en', label: 'English' },
-    { key: 'zh_CN', label: '简体中文' },
-    { key: 'zh_TW', label: '繁體中文' },
-  ];
-
   const membersDropdownItems: MenuProps['items'] = [
     {
       key: 'member',
       label: <Link to='/member/'>{t('menu.member')}</Link>,
-    },
-    {
-      key: 'redstoneCollection',
-      label: <Link to='/redstoneCollection/'>{t('menu.redstone')}</Link>,
-    },
-    {
-      key: 'architectureCollection',
-      label: <Link to='/architectureCollection/'>{t('menu.building')}</Link>,
     },
   ];
 
@@ -358,7 +343,7 @@ const NavigationBar: React.FC = () => {
             $scrolled={scrolled}
             $isDark={isDark}
           >
-            <img src='/brand.webp' alt='CTEC' />
+            <img src='/brand.webp' alt='chspif' />
           </Brand>
 
           <NavLinks>
@@ -379,47 +364,23 @@ const NavigationBar: React.FC = () => {
             >
               {t('menu.survivalProgress')}
             </NavLink>
-            <Dropdown menu={{ items: membersDropdownItems }} placement='bottom'>
-              <DropdownTrigger $scrolled={scrolled}>
-                {t('menu.memberAndWork')}
-              </DropdownTrigger>
-            </Dropdown>
             <NavLink
-              to='/openSource/'
-              $active={isActive('/openSource')}
+              to='/member/'
+              $active={isActive('/member')}
               $scrolled={scrolled}
             >
-              {t('menu.openSource')}
+              {t('menu.member')}
             </NavLink>
             <NavLink
-              to='/partner/'
-              $active={isActive('/partner')}
+              to='/internal/'
+              $active={isActive('/internal')}
               $scrolled={scrolled}
             >
-              {t('menu.partner')}
+              {t('menu.internal')}
             </NavLink>
           </NavLinks>
 
           <NavActions>
-            <IconButton
-              $scrolled={scrolled}
-              onClick={toggleTheme}
-              aria-label='Toggle theme'
-            >
-              {isDark ? <SunOutlined /> : <MoonOutlined />}
-            </IconButton>
-
-            <Dropdown
-              menu={{
-                items: languageItems,
-                onClick: ({ key }) => changeLanguage(key),
-              }}
-              placement='bottom'
-            >
-              <LanguageButton $scrolled={scrolled} aria-label='Change language'>
-                <GlobalOutlined />
-              </LanguageButton>
-            </Dropdown>
 
             <MobileMenuButton
               $scrolled={scrolled}
@@ -445,23 +406,11 @@ const NavigationBar: React.FC = () => {
         <MobileNavLink to='/member/' $active={isActive('/member')}>
           {t('menu.member')}
         </MobileNavLink>
-        <MobileNavLink
-          to='/redstoneCollection/'
-          $active={isActive('/redstoneCollection')}
-        >
-          {t('menu.redstone')}
-        </MobileNavLink>
-        <MobileNavLink
-          to='/architectureCollection/'
-          $active={isActive('/architectureCollection')}
-        >
-          {t('menu.building')}
-        </MobileNavLink>
         <MobileNavLink to='/openSource/' $active={isActive('/openSource')}>
           {t('menu.openSource')}
         </MobileNavLink>
-        <MobileNavLink to='/partner/' $active={isActive('/partner')}>
-          {t('menu.partner')}
+        <MobileNavLink to='/internal/' $active={isActive('/internal')}>
+          {t('menu.internal')}
         </MobileNavLink>
       </MobileMenu>
     </>

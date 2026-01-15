@@ -9,23 +9,14 @@
   "creator": "创作者",
   "credit": "特别鸣谢",
   "introduction": "简介",
-  "scroll": "向下滚动",
+  "scroll": "⬇",
   "menu": {
     "home": "首页",
-    "survivalProgress": "生存服进度",
-    "memberAndWork": "成员与作品",
+    "survivalProgress": "服务器进度",
+    "memberAndWork": "成员",
     "member": "成员",
-    "redstone": "红石作品",
-    "building": "建筑作品",
     "join": "加入我们",
-    "openSource": "开源项目",
-    "partner": "合作伙伴及团队"
-  },
-  "footer": {
-    "donate": {
-      "description": "支持我们",
-      "link": "https://paypal.me/cloudtownctec?country.x=TW&locale.x=zh_TW"
-    }
+    "internal": "内部资料"
   },
   "time": {
     "days": "天",
@@ -35,27 +26,29 @@
   },
   "home": {
     "backgroundVideo": {
-      "youtubeId": "FCtztiDl_rE",
-      "start": 9
+      "bvid": "",
+      "videoUrl": "/web~2.mp4",
+      "posterUrl": "",
+      "start": 0,
+      "duration": 300
     },
-    "description": "真正的艺术作品不过是神圣完美的倒影",
+    "backgroundMusic": {
+      "audioUrl": "/backsound.mp3",
+      "volume": 0.3
+    },
+    "description": "在成长中追逐自我",
     "serverRunning": "已创立",
-    "joinButton": "创意启航",
     "about": {
-      "imageUrl": "homePage/CTEC_Sort.webp",
-      "title": "Cloud Town Exquisite Craft",
-      "subTitle": "云镇工艺",
+      "imageUrl": "homePage/chspif_qwp.png",
+      "title": "Chspif",
       "features": [
-        "为目前亚洲顶尖技术生存服务器之一",
-        "活跃于Minecraft原版环境下的技术研究",
+        "为目前国内顶尖神人服务器之一",
         "生存实践、红石科技、建筑创作",
-        "良好的创作环境与服务器设备",
-        "与各国优秀玩家共同研究交流",
-        "农场世界纪录持有量世界第六、亚洲第一"
+        "良好的玩家氛围与服务器设备"
       ],
       "buttons": [
         {
-          "text": "最新进度",
+          "text": "服务器进度",
           "link": "/survival"
         }
       ]
@@ -64,243 +57,65 @@
       "title": "我们拥有",
       "card": [
         {
-          "imageUrl": "homePage/CTEC_Building.webp",
+          "imageUrl": "homePage/chspif_chiil.png",
           "title": "顶尖建筑团队",
-          "paragraph": "极力于融合红石与建筑，呈现独有在生存模式的作品。云镇的建筑师来自各个领域，在至少一门风格脱颖而出的大师。我们相信只有站到巨人的肩膀才能够开阔自己的视野。在学习大佬的手法中也常跟在建筑圈深耕的团队和服务器交好，其中包含鬼鲸服务器，阿尔萨斯工业以及LIF框木的制作组。云镇也提供完善的插件和创作环境让建筑师尽显才华。",
-          "buttons": [
-            {
-              "text": "查看建筑作品",
-              "link": "/architectureCollection"
-            }
-          ]
+          "paragraph": ""
         },
         {
-          "imageUrl": "homePage/CTEC_Redstone.webp",
+          "imageUrl": "homePage/chenpi.png",
           "title": "先进的红石技术",
-          "paragraph": "团队拥有前瞻红石技术实力，由各领域优秀开发者所组成，熟练掌握各种科技树研究，并与多个国际技术性服务器维持友好关系。致力于研究和创新，为社区研发各种高原创性的农场或原件，为社区成员提供更多的游戏乐趣。设置红石研究室，包括两个创造与两个生存镜像服务器，让创造设计的玩家也可以加入云镇工艺的行列。我们目前持有农场世界纪录认证排名世界第六、亚洲第一。",
-          "buttons": [
-            {
-              "text": "查看红石作品",
-              "link": "/redstoneCollection"
-            }
-          ]
+          "paragraph": ""
         },
         {
-          "imageUrl": "homePage/CTEC_Hardware.webp",
-          "title": "長效穩定的服务器设备",
-          "paragraph": "我们拥有优秀的服务器设备，能够支持大量的同时在线玩家开发与游玩。并在各国拥有低延迟连接代理服务器，为不同地区的玩家提供了极佳的游戏体验。设备拥有 i9-13900K, 128G RAM, 6TB SSD, UPS 不断电系统。并有专属工程师维护，保证服务器的稳定运行。",
-          "buttons": [
-            {
-              "text": "查看服务器设备",
-              "link": "/hardware"
-            }
-          ]
-        }
-      ]
-    },
-    "carousel": {
-      "title": "服务器内容",
-      "subtitles": ["最新生存进度", "最新红石作品", "最新建筑作品"]
-    },
-    "frostPursuit": {
-      "imageUrl": "homePage/CTEC_FrostPursuit.webp",
-      "title": "Frost Pursuit 圣诞特别地图",
-      "subTitle": "全新冰船竞速地图正式发布！",
-      "features": [
-        "身临其境的冬季赛道设计",
-        "精心设计红石与节日氛围",
-        "支持多人竞速模式",
-        "精心设计的光影与视觉效果"
-      ],
-      "buttons": [
-        {
-          "text": "探索地图",
-          "href": "/frostpursuit"
+          "imageUrl": "homePage/chspif_xiayu.png",
+          "title": "长效稳定的服务器设备",
+          "paragraph": ""
         }
       ]
     }
   },
-  "notFound": {
-    "title": "404 未找到",
-    "description": "看起来这里已经化为灰烬了...",
-    "imageUrl": "notFoundPage/CTEC_Burning.webp",
-    "backButton": "返回首页"
-  },
   "members": {
     "title": "成员列表",
-    "imageUrl": "members/CTEC_Members.webp",
-    "description": "各领域优秀成员共创了服务器精彩纪录",
-    "searchPlaceholder": "搜索成员",
-    "noResult": "没有找到成员",
-    "memberGroup": {
-      "title": "正式成员",
-      "subTitle": "这些老司机们已经在服务器上留下了自己的痕迹"
-    },
-    "trialGroup": {
-      "title": "新秀成员",
-      "subTitle": "新鲜的肝，等待你的发掘"
+    "imageUrl": "members/chspifmember.png",
+    "description": "各领域优秀成员构成了我们的大家庭",
+    "membersGroup": {
+      "title": "优秀成员",
+      "subTitle": " "
     }
   },
   "join": {
     "description": "如何加入我们",
-    "imageUrl": "join/CTEC_Lounge.webp",
+    "imageUrl": "join/back.png",
     "redstone": {
-      "imageUrl": "join/CTEC_Redstone.webp",
-      "title": "红石组",
+      "imageUrl": "join/tianshang.png",
+      "title": "加入我们",
       "features": [
-        "投稿红石作品至作品投稿或审核人员私信来申请审核。",
-        "我们将邀请优秀作品的作者加入。",
-        "审核人员 Discord:"
+        "填写表单等待审核，所有审核都会在48小时内完成",
+        "表单中有Chspif的硬性要求，如果你在某一方面，我们也可以为你放宽条件，请你加入审核群与管理人员交流",
+        "表单和审核群:"
       ],
       "buttons": [
         {
-          "text": "fantasy_sakura",
-          "href": "https://discordapp.com/users/676261754782613514",
+          "text": "表单",
+          "href": "https://docs.qq.com/form/page/DTnBDSVptVXVmT1Nq",
           "type": "link"
         },
         {
-          "text": "jezlarm",
-          "href": "https://discordapp.com/users/378510281250439168",
-          "type": "link"
-        },
-        {
-          "text": "作品投稿频道",
-          "href": "https://discord.com/channels/933290709589577728/1103568261683101696",
-          "type": "link"
-        }
-      ]
-    },
-    "build": {
-      "imageUrl": "join/CTEC_Build.webp",
-      "title": "建筑组",
-      "subTitle": "审核会根据这几项标准来进行：",
-      "features": [
-        "结构合理性：不反牛顿（魔幻/奇幻除外，但夸张也要有一定的合理性），作品能够表现合理的搭建结构并且能够准确还原风格细节和结构，而不是空有其表。",
-        "色彩应用：作品采用对色彩应用概念和调色技巧产生惊艳的视觉效果。",
-        "创造力：云镇建筑部门严禁抄袭，恶劣二创等走审核漏洞机制，请尊重每个原创作品。 拥有丰富创造力的作者能够在作品中体现强烈的个人风格与独特的创新能力。"
-      ],
-      "buttons": [
-        {
-          "text": "申请表单",
-          "href": "https://forms.gle/sGUxUtUaskchiTfG7",
-          "type": "link"
-        }
-      ]
-    },
-    "logistics": {
-      "imageUrl": "join/CTEC_Logistics.webp",
-      "title": "后勤组",
-      "features": [
-        "我们希望可以招收出具有基础红石知识和有游戏热忱的MC玩家，如果您很肝也有一点红石知识还有满满的游戏热忱，欢迎填写云镇工艺后勤组表单，若分数达标将会有活跃度的二次审核。"
-      ],
-      "buttons": [
-        {
-          "text": "申请表单",
-          "href": "https://forms.gle/sGUxUtUaskchiTfG7",
+          "text": "审核群",
+          "href": "https://qm.qq.com/q/tbWOWCIaUa",
           "type": "link"
         }
       ]
     }
   },
   "survivalProgress": {
-    "title": "生存服进度",
-    "description": "历史并非毫无意义，而是为了在时光中留下我们走过的痕迹",
-    "storyMode": "故事模式",
-    "pause": "暂停",
-    "continue": "继续"
+    "title": "服务器进度",
+    "description": "我们的故事很长，大家一起前行",
+    "scrollToBottom": "回到开始"
   },
   "opensource": {
     "title": "开源列表",
-    "description": "看起来很赞 不是吗?",
-    "imageUrl": "openSource/CTEC_Development.webp"
-  },
-  "partner": {
-    "title": "合作伙伴及团队",
-    "team": {
-      "title": "合作团队"
-    },
-    "longtime": {
-      "title": "长期合作创作者"
-    },
-    "creator": {
-      "title": "合作创作者"
-    },
-    "contact": {
-      "title": "联系我们",
-      "subTitle": "如果你有任何问题或者合作意向，欢迎与我们联系",
-      "imageUrl": "brand/brand1.webp",
-      "buttons": [
-        {
-          "text": "Email",
-          "link": "mailto:cloudtown0723@gmail.com"
-        },
-        {
-          "text": "Discord",
-          "link": "https://discordapp.com/users/525640608228966400"
-        },
-        {
-          "text": "YouTube",
-          "link": "https://www.youtube.com/@CTEC_"
-        }
-      ]
-    }
-  },
-  "architectureCollection": {
-    "title": "建筑作品集",
-    "imageUrl": "homePage/CTEC_Building.webp",
-    "searchPlaceholder": "搜索标签或名称"
-  },
-  "redstoneCollection": {
-    "title": "紅石作品集",
-    "imageUrl": "redstoneCollection/p30.webp",
-    "searchPlaceholder": "搜索标签或名称"
-  },
-  "hardware": {
-    "title": "服务器硬件",
-    "description": "顶级设备驱动我们的创意社区",
-    "imageUrl": "homePage/CTEC_Hardware.webp",
-    "specsTitle": "服务器规格",
-    "featuresTitle": "核心特色",
-    "specs": [
-      {
-        "icon": "processor",
-        "name": "处理器",
-        "value": "Intel Core i9-13900K\n24核心，32线程\n最高 5.8 GHz"
-      },
-      {
-        "icon": "memory",
-        "name": "内存",
-        "value": "128GB DDR4 RAM\n高速性能\n多任务优化"
-      },
-      {
-        "icon": "storage",
-        "name": "存储空间",
-        "value": "Samsung 980 Pro & 960 Evo\n超快读写速度\n可靠的数据保护"
-      },
-      {
-        "icon": "power",
-        "name": "电源供应",
-        "value": "UPS 不断电系统\n24/7 运行保证\n防止电力中断"
-      },
-      {
-        "icon": "network",
-        "name": "网络",
-        "value": "全球代理服务器\n低延迟连接\n国际玩家优化\n企业级 DDoS 防护"
-      },
-      {
-        "icon": "maintenance",
-        "name": "维护",
-        "value": "专业工程团队\n主动监控\n定期更新与优化"
-      }
-    ],
-    "features": [
-      "支持大量玩家同时在线而不影响性能",
-      "全球分布的低延迟代理服务器，提供最佳游戏体验",
-      "专业级 UPS 系统确保 99.9% 正常运行时间",
-      "专业工程师定期进行硬件维护和软件更新",
-      "先进冷却系统确保持续高性能运作",
-      "自动化备份系统保护玩家数据和世界进度",
-      "针对创意建筑和高强度红石装置进行优化"
-    ]
+    "description": "如果这些能帮得上你",
+    "imageUrl": "openSource/open.png"
   }
 }

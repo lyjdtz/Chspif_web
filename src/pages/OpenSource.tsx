@@ -1,4 +1,4 @@
-import { RepoCard } from 'react-repo-card-v2';
+import SimpleRepoCard from '#/common/SimpleRepoCard.tsx';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
@@ -8,7 +8,7 @@ import HeaderImage from '#/common/HeaderImage.tsx';
 import useApi from '@/hooks/useApi';
 import getImageUrl from '@/utils/getImageUrl.ts';
 import { IRepoType } from '@/types/IRepoType.ts';
-import { GITHUB_API } from '@/constants';
+import { STATIC_DATA_API } from '@/constants';
 import { StatusShowingGroup } from '#/common/StatusShowingGroup.tsx';
 import { useTheme } from '@/hooks/useTheme';
 
@@ -48,9 +48,11 @@ const SectionTitle = styled.h2`
 `;
 
 const OpenSourcePage = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { isDark } = useTheme();
-  const { data, loading, error } = useApi<IRepoType[]>(GITHUB_API);
+  const { data, loading, error } = useApi<IRepoType[]>(
+    `${STATIC_DATA_API}/${i18n.language}/githubRepos.json`,
+  );
 
   return (
     <>
@@ -70,11 +72,7 @@ const OpenSourcePage = () => {
               (repo) =>
                 !repo.name.startsWith('.') && (
                   <RepoCardContainer key={repo.id}>
-                    <RepoCard
-                      repository={repo}
-                      showIssues={false}
-                      darkMode={isDark}
-                    />
+                    <SimpleRepoCard repo={repo} />
                   </RepoCardContainer>
                 ),
             )}

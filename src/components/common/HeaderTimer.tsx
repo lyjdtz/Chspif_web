@@ -10,7 +10,7 @@ const HeaderTimer: React.FC = () => {
   const { t } = useTranslation();
   const [timeDiff, setTimeDiff] = useState(0);
 
-  const serverStartTime = new Date('2022-07-22T16:00:00.000Z').getTime();
+  const serverStartTime = new Date('2019-09-14T12:48:00.000Z').getTime();
 
   useEffect(() => {
     const updateDiff = () => {

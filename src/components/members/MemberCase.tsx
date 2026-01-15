@@ -58,7 +58,7 @@ const MemberCase = ({ memberGroups, searchMode }: MemberCaseProps) => {
           )}
           {members.length > 0 &&
             members.map((member, index) => (
-              <Col key={index} span={24} sm={12} md={12} lg={8}>
+              <Col key={index} span={24} sm={12} md={12} lg={12}>
                 <MemberCard member={member} searchMode={searchMode} />
               </Col>
             ))}

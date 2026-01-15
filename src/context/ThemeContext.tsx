@@ -4,7 +4,7 @@ import { ThemeContext, Theme } from './themeContextValue';
 export { ThemeContext, type Theme } from './themeContextValue';
 export type { ThemeContextType } from './themeContextValue';
 
-const THEME_STORAGE_KEY = 'ctec-theme-preference';
+const THEME_STORAGE_KEY = 'chspif-theme-preference';
 
 interface ThemeProviderProps {
   children: ReactNode;

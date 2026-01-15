@@ -6,23 +6,11 @@ import useAnimateOnScroll from '@/hooks/useAnimateOnScroll.ts';
 import { IMember } from '@/types/IMember.ts';
 import { fadeIn } from '@/styles/animation.ts';
 
-const FullBodyImage = styled(LazyLoadImage)`
-  width: 100px;
-  height: auto;
-
-  @media (max-width: 400px) {
-    display: none;
-  }
-`;
-
-const HeadImage = styled(LazyLoadImage)`
-  display: none;
-
-  @media (max-width: 400px) {
-    width: 100px;
-    height: auto;
-    display: block;
-  }
+const AvatarImage = styled(LazyLoadImage)`
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  object-fit: cover;
 `;
 
 const StyledCard = styled(Card)<{ $fadeIn: boolean }>`
@@ -31,6 +19,8 @@ const StyledCard = styled(Card)<{ $fadeIn: boolean }>`
   border: 1px solid var(--border-color) !important;
   border-radius: var(--radius-lg) !important;
   transition: all var(--transition-base) !important;
+  padding: 8px !important;
+  min-height: 120px;
 
   &:hover {
     border-color: var(--color-primary) !important;
@@ -39,10 +29,14 @@ const StyledCard = styled(Card)<{ $fadeIn: boolean }>`
 
   .ant-card-meta-title {
     color: var(--text-primary) !important;
+    font-size: 0.9rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
-  .ant-card-meta-description {
-    color: var(--text-secondary) !important;
+  .ant-card-body {
+    padding: 0 !important;
   }
 
   ${(props) =>
@@ -54,10 +48,17 @@ const StyledCard = styled(Card)<{ $fadeIn: boolean }>`
 
 const ImageWrapper = styled.div`
   width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 8px;
+`;
 
-  & > span > img {
-    width: 100%;
-  }
+const TextWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 0 8px;
 `;
 
 const MemberCard = ({
@@ -69,32 +70,24 @@ const MemberCard = ({
 }) => {
   const { animate, ref } = useAnimateOnScroll();
 
-  const fullBodyUrl = 'https://mineskin.eu/armor/body/';
-  const headUrl = 'https://mineskin.eu/helm/';
-  const introduction =
-    member.introduction?.length === 0 || false
-      ? undefined
-      : member.introduction;
+  const avatarUrl = `/static-data/images/${member.avatar}`;
 
   return (
     <StyledCard ref={ref} $fadeIn={animate || searchMode}>
-      <Row gutter={[16, 16]} align='middle'>
-        <Col span={11}>
+      <Row gutter={[8, 0]}>
+        <Col span={12}>
           <ImageWrapper>
-            <FullBodyImage
-              src={`${fullBodyUrl}${member.uuid}/100.png`}
-              alt={member.name + ' full body'}
-              effect='blur'
-            />
-            <HeadImage
-              src={`${headUrl}${member.uuid}/100.png`}
-              alt={member.name + ' head'}
+            <AvatarImage
+              src={avatarUrl}
+              alt={member.name + ' avatar'}
               effect='blur'
             />
           </ImageWrapper>
         </Col>
-        <Col span={13}>
-          <Card.Meta title={member.name} description={introduction} />
+        <Col span={12}>
+          <TextWrapper>
+            <Card.Meta title={member.name} />
+          </TextWrapper>
         </Col>
       </Row>
     </StyledCard>

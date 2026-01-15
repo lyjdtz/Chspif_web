@@ -66,20 +66,18 @@ const MembersPage = () => {
   const [searchTerm, setSearchTerm] = useState('');
 
   const filteredMembers = useMemo(() => {
-    const groups = ['member', 'trial'];
-
-    return Object.fromEntries(
-      Object.entries(data || {})
-        .filter(([category]) => groups.includes(category))
-        .map(([category, items]) => {
-          return [
-            category,
-            items.filter((item) =>
-              item.name.toLowerCase().includes(searchTerm.toLowerCase()),
-            ),
-          ];
-        }),
+    // Extract members from the data
+    const members = data?.members || [];
+    
+    // Filter members based on search term
+    const filtered = members.filter((item) =>
+      item.name.toLowerCase().includes(searchTerm.toLowerCase()),
     );
+    
+    // Return in the expected format
+    return {
+      members: filtered
+    };
   }, [data, searchTerm]);
 
   return (
@@ -92,15 +90,6 @@ const MembersPage = () => {
         subHeaderContentArray={[t('members.description')]}
       />
       <Container>
-        <SearchContainer>
-          <StyledInput
-            placeholder={t('members.searchPlaceholder')}
-            variant={'filled'}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            size={'large'}
-            name={'Search Members'}
-          />
-        </SearchContainer>
         {error && (
           <StatusContainer>
             <WarningOutlined style={{ fontSize: '24px', color: '#feffe6' }} />

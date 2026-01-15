@@ -1,9 +1,11 @@
 import { ConfigProvider, theme as antdTheme } from 'antd';
 import { Outlet } from 'react-router-dom';
 import styled from 'styled-components';
+import { useTranslation } from 'react-i18next';
 import NavigationBar from '#/common/NavigationBar.tsx';
 import Footer from '#/common/Footer.tsx';
 import ScrollToTopButton from '#/common/ScrollToTopButton.tsx';
+import BackgroundMusic from '#/common/BackgroundMusic.tsx';
 import { useTheme } from '@/hooks/useTheme';
 
 const AppContainer = styled.div`
@@ -14,6 +16,7 @@ const AppContainer = styled.div`
 
 export const Layout = () => {
   const { isDark } = useTheme();
+  const { t } = useTranslation();
 
   // Light theme tokens
   const lightTokens = {
@@ -97,6 +100,9 @@ export const Layout = () => {
       }}
     >
       <AppContainer>
+        {/* Global background music component */}
+        <BackgroundMusic {...t('home.backgroundMusic', { returnObjects: true })} />
+        
         <NavigationBar />
         <Outlet />
         <Footer />

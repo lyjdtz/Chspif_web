@@ -18,12 +18,7 @@ const HomePage = () => {
   const { data: survivalProgress } = useApi<IImageContent[]>(
     `${STATIC_DATA_API}/${i18n.language}/survivalProgress.json`,
   );
-  const { data: redstoneCollection } = useApi<IImageContent[]>(
-    `${STATIC_DATA_API}/${i18n.language}/redstoneCollection.json`,
-  );
-  const { data: architectureCollection } = useApi<IImageContent[]>(
-    `${STATIC_DATA_API}/${i18n.language}/architectureCollection.json`,
-  );
+  
 
   const navigate = useNavigate();
 
@@ -54,18 +49,6 @@ const HomePage = () => {
     );
   }
 
-  if (redstoneCollection) {
-    imageContentsSections.push(
-      createSections(redstoneCollection, 'redstoneCollection'),
-    );
-  }
-
-  if (architectureCollection) {
-    imageContentsSections.push(
-      createSections(architectureCollection, 'architectureCollection'),
-    );
-  }
-
   return (
     <>
       <PageHeader
@@ -75,9 +58,7 @@ const HomePage = () => {
           />
         }
         headerTextArray={[
-          'Cloud Town Exquisite Craft',
-          '雲鎮工藝 | CTEC',
-          '云镇工艺 | CTEC',
+          'Chspif',
         ]}
         subHeaderContentArray={[
           // eslint-disable-next-line react/jsx-key
@@ -85,34 +66,16 @@ const HomePage = () => {
           // eslint-disable-next-line react/jsx-key
           <HeaderTimer />,
           // eslint-disable-next-line react/jsx-key
-          <Link to='/join/'>
-            <Button color='primary' size='large' ghost={true}>
-              {t('home.joinButton')}
-            </Button>
-          </Link>,
         ]}
         useTyped={true}
       />
       <ImageContentSection
         imageContent={t('home.about', { returnObjects: true })}
       />
-      <ImageContentSection
-        imageContent={t('home.frostPursuit', { returnObjects: true })}
-        imageOnRight={true}
-        darkMode={true}
-      />
       <CardsSection
         title={t('home.feature.title')}
         type={'dark'}
         imageContentSections={t('home.feature.card', { returnObjects: true })}
-      />
-      <CarouselSection
-        title={t('home.carousel.title')}
-        subtitles={
-          t('home.carousel.subtitles', { returnObjects: true }) as string[]
-        }
-        imageContentsSections={imageContentsSections}
-        useStaticDataApi={true}
       />
     </>
   );

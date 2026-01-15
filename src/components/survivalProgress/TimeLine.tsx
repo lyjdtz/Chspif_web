@@ -1,8 +1,8 @@
-import React, { useEffect, useState, useRef, useCallback } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Timeline } from 'antd';
 import styled, { keyframes } from 'styled-components';
 import { throttle } from 'lodash';
-import { PlayCircleOutlined, PauseCircleOutlined } from '@ant-design/icons';
+import { ArrowDownOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
 
 import TimelineItemContent from '#/survivalProgress/TimeLineContent.tsx';
@@ -77,7 +77,7 @@ const StyledTimeline = styled(Timeline)`
   }
 `;
 
-const AutoScrollButton = styled.button<{ $isPlaying: boolean; $show: boolean }>`
+const ScrollToBottomButton = styled.button<{ $show: boolean }>`
   position: fixed;
   bottom: 24px;
   right: 80px;
@@ -88,13 +88,10 @@ const AutoScrollButton = styled.button<{ $isPlaying: boolean; $show: boolean }>`
   padding: 12px 20px;
   border: 1px solid var(--border-color);
   border-radius: var(--radius-full);
-  background: ${(props) =>
-    props.$isPlaying
-      ? 'linear-gradient(135deg, var(--color-primary), var(--color-secondary))'
-      : 'var(--glass-bg)'};
+  background: var(--glass-bg);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  color: ${(props) => (props.$isPlaying ? 'white' : 'var(--text-secondary)')};
+  color: var(--text-secondary);
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
@@ -107,10 +104,7 @@ const AutoScrollButton = styled.button<{ $isPlaying: boolean; $show: boolean }>`
   transform: translateY(${(props) => (props.$show ? '0' : '20px')});
 
   &:hover {
-    background: ${(props) =>
-      props.$isPlaying
-        ? 'linear-gradient(135deg, var(--color-secondary), var(--color-primary))'
-        : 'var(--color-primary)'};
+    background: var(--color-primary);
     color: white;
     border-color: var(--color-primary);
     transform: ${(props) =>
@@ -142,54 +136,7 @@ const AutoScrollButton = styled.button<{ $isPlaying: boolean; $show: boolean }>`
   }
 `;
 
-const ProgressContainer = styled.div`
-  position: fixed;
-  left: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 100;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
 
-  @media (max-width: 768px) {
-    display: none;
-  }
-`;
-
-const ProgressBar = styled.div`
-  width: 4px;
-  height: 200px;
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 4px;
-  overflow: hidden;
-  position: relative;
-`;
-
-const ProgressFill = styled.div<{ $progress: number }>`
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: ${(props) => props.$progress}%;
-  background: linear-gradient(
-    to top,
-    rgba(100, 200, 255, 0.9),
-    rgba(150, 100, 255, 0.9)
-  );
-  border-radius: 4px;
-  transition: height 0.1s linear;
-`;
-
-const ProgressLabel = styled.span<{ $isChinese: boolean }>`
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 12px;
-  font-weight: 500;
-  writing-mode: vertical-rl;
-  text-orientation: ${(props) => (props.$isChinese ? 'upright' : 'mixed')};
-  transform: ${(props) => (props.$isChinese ? 'none' : 'rotate(180deg)')};
-`;
 
 interface TimelineProps {
   items: IImageContent[];
@@ -204,139 +151,19 @@ const TimelineComponent: React.FC<TimelineProps> = ({ items, activeIndex }) => {
   const [bgImage2, setBgImage2] = useState<string>('');
   const [activeLayer, setActiveLayer] = useState<1 | 2>(1);
 
-  // Auto-scroll state
-  const [isAutoScrolling, setIsAutoScrolling] = useState(false);
-  const [scrollProgress, setScrollProgress] = useState(0);
-  const [currentStoryIndex, setCurrentStoryIndex] = useState(-1); // -1 means not started
-  const [showButton, setShowButton] = useState(false); // Show button after scrolling
-  const storyTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const hasStartedRef = useRef(false); // Track if story has been started (vs paused)
-
-  // Story mode settings
-  const PAUSE_DURATION = 3000; // Pause 3 seconds on each item
-
   // Show button after scrolling (like ScrollToTopButton)
+  const [showButton, setShowButton] = useState(false);
   useEffect(() => {
     setShowButton(y > 400);
   }, [y]);
 
-  // Calculate scroll progress
-  useEffect(() => {
-    const maxScroll =
-      document.documentElement.scrollHeight - window.innerHeight;
-    const progress = maxScroll > 0 ? (y / maxScroll) * 100 : 0;
-    setScrollProgress(Math.min(100, Math.max(0, progress)));
-  }, [y]);
-
-  // Terminate story mode on user scroll
-  useEffect(() => {
-    const terminateStoryMode = () => {
-      if (isAutoScrolling) {
-        setIsAutoScrolling(false);
-        if (storyTimeoutRef.current) {
-          clearTimeout(storyTimeoutRef.current);
-          storyTimeoutRef.current = null;
-        }
-        // Reset for next fresh start
-        hasStartedRef.current = false;
-        setCurrentStoryIndex(-1);
-      }
-    };
-
-    window.addEventListener('wheel', terminateStoryMode, { passive: true });
-    window.addEventListener('touchmove', terminateStoryMode, { passive: true });
-
-    return () => {
-      window.removeEventListener('wheel', terminateStoryMode);
-      window.removeEventListener('touchmove', terminateStoryMode);
-    };
-  }, [isAutoScrolling]);
-
-  // Story mode: scroll to next item (going upward - from bottom to top)
-  const scrollToNextItem = useCallback(() => {
-    if (!isAutoScrolling) return;
-
-    const nextIndex = currentStoryIndex - 1;
-
-    if (nextIndex < 0) {
-      // Reached the top, stop story mode
-      setIsAutoScrolling(false);
-      hasStartedRef.current = false;
-      setCurrentStoryIndex(-1);
-      return;
-    }
-
-    const nextRef = itemRefs.current[nextIndex];
-    if (nextRef) {
-      nextRef.scrollIntoView({
-        behavior: 'smooth',
-        block: 'center',
-      });
-
-      setCurrentStoryIndex(nextIndex);
-    }
-  }, [isAutoScrolling, currentStoryIndex]);
-
-  // Schedule next scroll after index changes
-  useEffect(() => {
-    if (isAutoScrolling && currentStoryIndex >= 0) {
-      storyTimeoutRef.current = setTimeout(() => {
-        scrollToNextItem();
-      }, PAUSE_DURATION);
-    }
-
-    return () => {
-      if (storyTimeoutRef.current) {
-        clearTimeout(storyTimeoutRef.current);
-      }
-    };
-  }, [isAutoScrolling, currentStoryIndex, scrollToNextItem]);
-
-  // Toggle auto-scroll (Start/Pause button)
-  const toggleAutoScroll = useCallback(() => {
-    if (isAutoScrolling) {
-      // PAUSE: Just stop, keep current index for resume
-      setIsAutoScrolling(false);
-      if (storyTimeoutRef.current) {
-        clearTimeout(storyTimeoutRef.current);
-        storyTimeoutRef.current = null;
-      }
-      // Keep hasStartedRef.current = true so we know to resume, not restart
-    } else {
-      // Check if this is a fresh start or resume from pause
-      const isPaused = hasStartedRef.current && currentStoryIndex >= 0;
-
-      if (isPaused) {
-        // RESUME: Continue from current position
-        setIsAutoScrolling(true);
-
-        // Scroll to current item first
-        const currentRef = itemRefs.current[currentStoryIndex];
-        if (currentRef) {
-          currentRef.scrollIntoView({
-            behavior: 'smooth',
-            block: 'center',
-          });
-        }
-      } else {
-        // FRESH START: Go to last item (bottom) and begin
-        setIsAutoScrolling(true);
-        hasStartedRef.current = true;
-
-        const startIndex = items.length - 1;
-        setCurrentStoryIndex(startIndex);
-
-        // Scroll to the starting item first
-        const startRef = itemRefs.current[startIndex];
-        if (startRef) {
-          startRef.scrollIntoView({
-            behavior: 'smooth',
-            block: 'center',
-          });
-        }
-      }
-    }
-  }, [isAutoScrolling, items.length, currentStoryIndex]);
+  // Scroll to bottom of page
+  const scrollToBottom = () => {
+    window.scrollTo({
+      top: document.documentElement.scrollHeight,
+      behavior: 'smooth'
+    });
+  };
 
   useEffect(() => {
     const checkVisibility = throttle(() => {
@@ -404,39 +231,15 @@ const TimelineComponent: React.FC<TimelineProps> = ({ items, activeIndex }) => {
       />
       <PageBackgroundOverlay />
 
-      {/* Progress indicator */}
-      <ProgressContainer>
-        <ProgressLabel $isChinese={i18n.language.startsWith('zh')}>
-          {t('survivalProgress.storyMode', 'Story')}
-        </ProgressLabel>
-        <ProgressBar>
-          <ProgressFill $progress={scrollProgress} />
-        </ProgressBar>
-      </ProgressContainer>
-
-      {/* Auto-scroll control button */}
-      <AutoScrollButton
-        $isPlaying={isAutoScrolling}
-        $show={showButton || isAutoScrolling}
-        onClick={toggleAutoScroll}
+      {/* Scroll to bottom button */}
+      <ScrollToBottomButton
+        $show={showButton}
+        onClick={scrollToBottom}
+        aria-label='Scroll to bottom'
       >
-        {isAutoScrolling ? (
-          <>
-            <PauseCircleOutlined />
-            {t('survivalProgress.pause', 'Pause')}
-          </>
-        ) : hasStartedRef.current && currentStoryIndex >= 0 ? (
-          <>
-            <PlayCircleOutlined />
-            {t('survivalProgress.continue', 'Continue')}
-          </>
-        ) : (
-          <>
-            <PlayCircleOutlined />
-            {t('survivalProgress.storyMode', 'Story Mode')}
-          </>
-        )}
-      </AutoScrollButton>
+        <ArrowDownOutlined />
+        {t('survivalProgress.scrollToBottom', 'Scroll to Bottom')}
+      </ScrollToBottomButton>
 
       <Container>
         <StyledTimeline

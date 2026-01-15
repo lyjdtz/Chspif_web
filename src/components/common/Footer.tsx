@@ -1,12 +1,12 @@
 import React from 'react';
 import { Row, Col, Space } from 'antd';
-import { DiscordOutlined, YoutubeOutlined, XOutlined } from '@ant-design/icons';
+import { GithubOutlined, BilibiliOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 import { serverLink } from '@/constants';
-import CTEC_banner from '@/assets/brand/brand.webp';
+import chspif_banner from '@/assets/brand/brand.webp';
 import logo from '@/assets/logo/base.webp';
 import { useTranslation } from 'react-i18next';
 
@@ -207,10 +207,10 @@ const Footer: React.FC = () => {
           <Col>
             <BrandLink to='/' onClick={() => setTimeout(scrollToTop, 500)}>
               <LogoImageWrapper>
-                <LazyLoadImage src={logo} alt='CTEC' effect='blur' />
+                <LazyLoadImage src={logo} alt='chspif' effect='blur' />
               </LogoImageWrapper>
               <BrandImageWrapper>
-                <LazyLoadImage src={CTEC_banner} alt='CTEC' effect='blur' />
+                <LazyLoadImage src={chspif_banner} alt='chspif' effect='blur' />
               </BrandImageWrapper>
             </BrandLink>
           </Col>
@@ -219,46 +219,30 @@ const Footer: React.FC = () => {
             <FooterLinkGroup>
               <FooterLinkTitle>{t('menu.memberAndWork')}</FooterLinkTitle>
               <FooterLink to='/member/'>{t('menu.member')}</FooterLink>
-              <FooterLink to='/redstoneCollection/'>
-                {t('menu.redstone')}
-              </FooterLink>
-              <FooterLink to='/architectureCollection/'>
-                {t('menu.building')}
-              </FooterLink>
             </FooterLinkGroup>
             <FooterLinkGroup>
               <FooterLinkTitle>Links</FooterLinkTitle>
               <FooterLink to='/join/'>{t('menu.join')}</FooterLink>
-              <FooterLink to='/openSource/'>{t('menu.openSource')}</FooterLink>
-              <FooterLink to='/partner/'>{t('menu.partner')}</FooterLink>
             </FooterLinkGroup>
           </FooterLinks>
 
           <Col>
             <Space size='middle'>
               <SocialIcon
-                href={serverLink.discord}
+                href={serverLink.github}
                 target='_blank'
                 rel='noopener noreferrer'
-                aria-label='Discord'
+                aria-label='GitHub'
               >
-                <DiscordOutlined />
+                <GithubOutlined />
               </SocialIcon>
               <SocialIcon
-                href={serverLink.youtube}
+                href={serverLink.bilibili}
                 target='_blank'
                 rel='noopener noreferrer'
-                aria-label='YouTube'
+                aria-label='Bilibili'
               >
-                <YoutubeOutlined />
-              </SocialIcon>
-              <SocialIcon
-                href={serverLink.x}
-                target='_blank'
-                rel='noopener noreferrer'
-                aria-label='X'
-              >
-                <XOutlined />
+                <BilibiliOutlined />
               </SocialIcon>
             </Space>
           </Col>
@@ -268,18 +252,8 @@ const Footer: React.FC = () => {
         <BottomRow>
           <Col>
             <Copyright>
-              © {new Date().getFullYear()} Cloud Town Exquisite Craft. All
-              Rights Reserved.
+              © {new Date().getFullYear()} Chspif. All Rights Reserved.
             </Copyright>
-          </Col>
-          <Col>
-            <Donate
-              href={t('footer.donate.link')}
-              target='_blank'
-              rel='noopener noreferrer'
-            >
-              {t('footer.donate.description')}
-            </Donate>
           </Col>
         </BottomRow>
       </BottomFooterContainer>

@@ -9,11 +9,8 @@ import JoinServer from './pages/JoinServer.tsx';
 import SurvivalProgress from './pages/SurvivalProgress.tsx';
 import MemberPage from './pages/Members.tsx';
 import OpenSourcePage from './pages/OpenSource.tsx';
-import Partner from './pages/Partner.tsx';
-import ArchitectureCollection from './pages/ArchitectureCollection.tsx';
-import RedstoneCollection from './pages/RedstoneCollection.tsx';
 import Hardware from './pages/Hardware.tsx';
-import NotFoundPage from './pages/NotFoundPage.tsx';
+import InternalPage from './pages/InternalPage.tsx';
 
 import initI18n from './i18n/i18nConfig';
 import 'antd/dist/reset.css';
@@ -35,15 +32,8 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
             <Route path='survivalProgress' element={<SurvivalProgress />} />
             <Route path='member' element={<MemberPage />} />
             <Route path='openSource' element={<OpenSourcePage />} />
-            <Route path='collaborative' element={<Partner />} />
-            <Route path='partner' element={<Partner />} />
-            <Route path='redstoneCollection' element={<RedstoneCollection />} />
-            <Route
-              path='architectureCollection'
-              element={<ArchitectureCollection />}
-            />
             <Route path='hardware' element={<Hardware />} />
-            <Route path='*' element={<NotFoundPage />} />
+            <Route path='internal' element={<InternalPage />} />
           </Route>
         </Routes>
       </BrowserRouter>
