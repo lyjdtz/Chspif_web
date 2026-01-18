@@ -32,10 +32,7 @@
       "start": 0,
       "duration": 300
     },
-    "backgroundMusic": {
-      "audioUrl": "/backsound.mp3",
-      "volume": 0.3
-    },
+    
     "description": "在成长中追逐自我",
     "serverRunning": "已创立",
     "about": {
