@@ -18,6 +18,12 @@
     "paragraph": ""
   },
   {
+    "imageUrl": "survivalProgress/boat.png",
+    "title": "船吸刷怪塔",
+    "subTitle": "2025年12月?日",
+    "paragraph": ""
+  },
+  {
     "imageUrl": "survivalProgress/2025.png",
     "title": "Chspif2025年度合影",
     "subTitle": "2025年12月31日",
@@ -27,6 +33,12 @@
     "imageUrl": "survivalProgress/tianshang.png",
     "title": "天上宫完工",
     "subTitle": "2026年1月2日",
+    "paragraph": ""
+  },
+  {
+    "imageUrl": "survivalProgress/2048.png",
+    "title": "2048熔炉组",
+    "subTitle": "2026年1月3日",
     "paragraph": ""
   },
   {
@@ -51,6 +63,12 @@
     "imageUrl": "survivalProgress/刷冰机1.png",
     "title": "刷冰机完工",
     "subTitle": "2026年1月27日",
+    "paragraph": ""
+  },
+  {
+    "imageUrl": "survivalProgress/pearl.png",
+    "title": "服务器玩家首次可以前往边境",
+    "subTitle": "2026年1月28日",
     "paragraph": ""
   }
 ]
