@@ -34,5 +34,23 @@
     "title": "全物品完工",
     "subTitle": "2026年1月5日",
     "paragraph": ""
+  },
+  {
+    "imageUrl": "survivalProgress/刷沙机.png",
+    "title": "刷沙机完工",
+    "subTitle": "2026年1月?日",
+    "paragraph": ""
+  },
+  {
+    "imageUrl": "survivalProgress/轨道炮.png",
+    "title": "轨道炮完工",
+    "subTitle": "2026年1月22日",
+    "paragraph": ""
+  },
+  {
+    "imageUrl": "survivalProgress/刷冰机1.png",
+    "title": "刷冰机完工",
+    "subTitle": "2026年1月27日",
+    "paragraph": ""
   }
 ]
