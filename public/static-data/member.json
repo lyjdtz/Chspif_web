@@ -43,12 +43,6 @@
       "avatar": "members/mcpfp - wangyuandejib.png"
     },
     {
-      "id": "9",
-      "name": "xhs_666",
-      "role": "玩家",
-      "avatar": "members/mcpfp - xhs_666.png"
-    },
-    {
       "id": "10",
       "name": "yunmo777",
       "role": "玩家",
@@ -79,6 +73,12 @@
       "avatar": "members/mcpfp - Oriole54.png"
     },
     {
+      "id": "17",
+      "name": "dp495",
+      "role": "玩家",
+      "avatar": "members/mcpfp - dp495.png"
+    },
+    {
       "id": "14",
       "name": "RaikQvQ",
       "role": "玩家",
@@ -91,16 +91,16 @@
       "avatar": "members/mcpfp - itsAFKay.png"
     },
     {
+      "id": "9",
+      "name": "xhs_666",
+      "role": "玩家",
+      "avatar": "members/mcpfp - xhs_666.png"
+    },
+    {
       "id": "16",
       "name": "xingcheng520",
       "role": "玩家",
       "avatar": "members/mcpfp - xingcheng520.png"
-    },
-    {
-      "id": "17",
-      "name": "dp495",
-      "role": "玩家",
-      "avatar": "members/mcpfp - dp495.png"
     }
   ]
 }
