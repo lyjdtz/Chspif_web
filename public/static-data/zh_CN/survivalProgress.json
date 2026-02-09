@@ -67,14 +67,14 @@
   },
   {
     "imageUrl": "survivalProgress/pearl.png",
-    "title": "服务器玩家首次可以前往边境",
+    "title": "服务器第一台边境珍珠炮",
     "subTitle": "2026年1月28日",
     "paragraph": ""
   },
   {
-    "imageUrl": "survivalProgress/AFKisthebest.png",
-    "title": "服务器大功臣AFK发现chspif最大恶性bug",
-    "subTitle": "2026年2月2日",
+    "imageUrl": "survivalProgress/pearl2.png",
+    "title": "编码矢量珍珠炮的诞生",
+    "subTitle": "2026年2月9日",
     "paragraph": ""
   }
 ]
