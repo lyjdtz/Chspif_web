@@ -13,6 +13,7 @@
   "menu": {
     "home": "首页",
     "survivalProgress": "服务器进度",
+    "map": "网页地图",
     "memberAndWork": "成员",
     "member": "成员",
     "join": "加入我们",
@@ -32,7 +33,6 @@
       "start": 0,
       "duration": 300
     },
-    
     "description": "在成长中追逐自我",
     "serverRunning": "已创立",
     "about": {

@@ -365,6 +365,11 @@ const NavigationBar: React.FC = () => {
               {t('menu.survivalProgress')}
             </NavLink>
             <NavLink
+              to='http://114.55.34.6:8100/'
+            >
+              {t('menu.map')}
+            </NavLink>
+            <NavLink
               to='/member/'
               $active={isActive('/member')}
               $scrolled={scrolled}
